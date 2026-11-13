@@ -1,126 +1,171 @@
-When you want to run RescueTrack on another computer, you don't need to create the project files again. You only need to download your GitHub project, install dependencies, and create your private .env file.
+# RescueTrack – Intelligent Accident Detection and Emergency Response System
 
-Here is the complete process.
-1. Install the required software
-On the new computer, install:
-1. Node.js (LTS): https://nodejs.org/
-2. Git: https://git-scm.com/
-3. VS Code: https://code.visualstudio.com/
-Open Git Bash and check:
-node -v
-npm -v
-git --version
+**RescueTrack** is an intelligent accident detection and emergency response system designed to improve road safety by helping monitor accident incidents, identify their locations and support emergency responders in providing timely assistance.
 
+The project provides a web-based platform for administrators and authorized emergency responders to monitor and manage accident-related information.
 
-2. Download your RescueTrack project
-Open Git Bash and run:
-cd Downloads
-git clone https://github.com/harshini-200627/RescueTrack.git
-cd RescueTrack
+## Project Overview
 
+RescueTrack currently consists of two main components:
 
-Your project will be downloaded with this structure:
+1. **Web Application:** A React-based dashboard for administrators and authorized emergency responders to monitor incidents, view accident locations, manage responders and track emergency response activities.
+2. **Backend and Database:** A Node.js and Express.js backend connected to MongoDB Atlas for authentication, data management and application services.
+
+**Future Mobile Application:** A Flutter-based mobile application is planned to collect accelerometer, gyroscope and GPS data, detect possible accidents and send emergency alerts with location details to the backend.
+
+## Key Features
+
+- User authentication and authorization.
+- Admin and responder dashboards.
+- Incident monitoring and management.
+- Live map for viewing accident locations.
+- Emergency responder management.
+- Incident history and reports.
+- Dashboard analytics and statistics.
+- Responsive web interface.
+
+## Technologies Used
+
+| Component | Technologies |
+|---|---|
+| Frontend | React.js, Vite, TypeScript |
+| UI and Styling | Tailwind CSS, Lucide React |
+| Maps | Leaflet |
+| Charts | Recharts |
+| Backend | Node.js, Express.js |
+| Database | MongoDB Atlas, Mongoose |
+| Authentication | JSON Web Token (JWT) |
+| Password Security | bcryptjs |
+| Future Mobile App | Flutter, Dart |
+
+## Project Structure
+
+```text
 RescueTrack/
 │
 ├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── ...
 │
-├── rescuetrack-backend-stage1/
-│   └── rescuetrack-backend/
-│
-├── .gitignore
-└── README.md
-
-
-3. Create files that are NOT in GitHub
-You only need to create your actual .env file.
-
-Go to:
-RescueTrack/
 └── rescuetrack-backend-stage1/
     └── rescuetrack-backend/
+        ├── server.js
+        ├── app.js
+        ├── config/
+        ├── models/
+        ├── controllers/
+        ├── routes/
+        ├── middleware/
+        ├── scripts/
+        └── package.json
+```
 
+## Getting Started
 
-Inside rescuetrack-backend, create a new file named exactly:
+### Prerequisites
 
-.env
+- Node.js (v18 or later)
+- npm
+- MongoDB Atlas account
+- Visual Studio Code
 
-Put your actual credentials in it:
-PORT=5000
-MONGODB_URI=your_actual_mongodb_uri
-JWT_SECRET=your_saved_jwt_secret
+### 1. Clone the Repository
 
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+```
 
+### 2. Start the Frontend
 
-Important
- This file is intentionally not uploaded to GitHub.
-You can retrieve your credentials from your encrypted private backup.
-4. Install frontend dependencies
-Open Git Bash in the main RescueTrack folder:
-cd ~/Downloads/RescueTrack/frontend
+Open a terminal in the main project folder:
+
+```bash
+cd frontend
 npm install
 npm run dev
+```
 
+Frontend URL:
 
-Wait until installation finishes.
-5. Install backend dependencies
-Open another Git Bash terminal:
-cd ~/Downloads/RescueTrack/rescuetrack-backend-stage1/rescuetrack-backend
-npm install
-npm run dev
-
-If your project was cloned somewhere else, adjust the path accordingly.
-6. Configure MongoDB Atlas
-Before starting the backend:
-1. Open MongoDB Atlas.
-2. Go to Network Access.
-3. Add the new computer's public IP address.
-4. Make sure your database user and password are still valid.
-You can reuse your existing MongoDB database and connection string.
-7. Run RescueTrack
-Terminal 1 – Backend
-cd ~/Downloads/RescueTrack/rescuetrack-backend-stage1/rescuetrack-backend
-npm start
-
-
-
-Terminal 2 – Frontend
-cd ~/Downloads/RescueTrack/frontend
-npm run dev
-
-
-If npm start is not defined in your backend package.json, run npm run to see the available scripts and choose the appropriate start command.
-
-Open the frontend URL shown in the terminal, usually:
-
+```text
 http://localhost:5173
-8. Files you need to create on another computer
-File	Create?
-.env	Yes
-.env.example	Already in GitHub
-.gitignore	Already in GitHub
-package.json	Already in GitHub
-package-lock.json	Already in GitHub
-node_modules	Created by npm install
-React source files	Already in GitHub
-Backend source files	Already in GitHub
+```
 
+### 3. Start the Backend
 
-Your complete checklist
-Setup progress
-0/9
+Open another terminal in the main project folder:
 
+```bash
+cd rescuetrack-backend-stage1/rescuetrack-backend
+npm install
+```
 
+Create a `.env` file using `.env.example` and configure the MongoDB connection and JWT secret.
 
-[ ] Install Node.js, Git and VS Code
-[ ] Clone RescueTrack from GitHub
-[ ] Retrieve encrypted .env backup
-[ ] Create backend .env file
-[ ] Run npm install in frontend
-[ ] Run npm install in backend
-[ ] Add new computer IP in MongoDB Atlas
-[ ] Start backend
-[ ] Start frontend
+Start the backend:
 
-One important note: Your current RescueTrack frontend may still use simulated development data in some areas. Running it on another computer does not automatically make those features live.
+```bash
+npm run dev
+```
 
-You can follow these same steps whenever you download RescueTrack onto a new computer.
+Backend health endpoint:
+
+```text
+http://localhost:5000/api/health
+```
+
+## System Architecture
+
+```text
+       React Web Application
+                 |
+                 v
+          Node.js Backend
+                 |
+                 v
+           MongoDB Atlas
+                 |
+                 v
+      Admins and Responders
+
+       Future Enhancement
+                 |
+                 v
+       Flutter Mobile App
+                 |
+                 v
+       Accident Detection
+       GPS Location Capture
+       Emergency Alerts
+```
+
+## Future Enhancements
+
+- Develop and integrate the Flutter mobile application.
+- Implement automatic accident detection using mobile sensors.
+- Capture accident locations using GPS.
+- Send emergency alerts to the backend.
+- Implement automatic responder assignment.
+- Enable real-time emergency response tracking.
+- Generate detailed incident reports.
+- Integrate with emergency services.
+
+## Development Status
+
+The React web application and Stage 1 backend are under development. The Flutter mobile application and its accident detection and emergency alert features are planned for future development.
+
+Some dashboard information may use simulated development data and should not be considered real emergency information.
+
+## Project Objective
+
+To develop an intelligent accident detection and emergency response system that helps identify road accidents, capture their locations and support faster emergency assistance.
+
+---
+
+**Project Name:** RescueTrack
+
+**Project Title:** Intelligent Accident Detection and Emergency Response System
+
+**Developed by:** Poosapati Harshini
