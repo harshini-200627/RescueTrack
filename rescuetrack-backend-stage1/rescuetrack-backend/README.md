@@ -25,7 +25,7 @@ Put your actual credentials in it: PORT=5000 MONGODB_URI=your_actual_mongodb_uri
 
 Important This file is intentionally not uploaded to GitHub. You can retrieve your credentials from your encrypted private backup. 4. Install frontend dependencies Open Git Bash in the main RescueTrack folder: cd ~/Downloads/RescueTrack/frontend npm install npm run dev
 
-Wait until installation finishes. 5. Install backend dependencies Open another Git Bash terminal: cd ~/Downloads/RescueTrack/rescuetrack-backend-stage1/rescuetrack-backend npm install npm run dev
+Wait until installation finishes. 5. Install backend dependencies Open another Git Bash terminal: cd ~/Downloads/RescueTrack/rescuetrack-backend-stage1/rescuetrack-backend cd ~/Downloads/rescuetrack-frontend/RescueTrack/rescuetrack-backend-stage1/rescuetrack-backend npm install npm run dev
 
 If your project was cloned somewhere else, adjust the path accordingly. 6. Configure MongoDB Atlas Before starting the backend:
 
